@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>FORMULARIUM JAVASCRIPTUM</title>
+	</head>
+	<body><!--Ponemos en el action el POSTMapping y el model del empleado vacío, que es el que vamos a rellenar-->
+		<form method="POST" th:action="addEmpleado" th:object="${empleadoForm}">
+			<table>
+				<tr>
+					<td><label for="nombre">Nombre</label></td>
+					<!--Como hemos puesto "$" en el empleadoForm no hace falta que lo volvamos 
+						a ponerlo porque se detecta que lo que estamos introduciendo son los 
+						atributos del mismo empleado.-->
+					<td><input type="text" th:field="*{nombre}" required></td>
+				</tr>
+				<tr>
+					<td><label for="email">Email</label></td>
+					<td><input type="email" th:field="*{email}" required></td>
+				</tr>
+			</table>                 
+			<button type="submit">Registrar</button>
+		</form>
+	</body>
